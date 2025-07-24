@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flower Shop</title>
+  <script>
+    function addToCart() {
+      alert("Flower Added to Cart");
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (max-width: 768px) {
+      .trusted-badge {
+        display: none;
+      }
+    }
+    .spin {
+      animation: spin 3s linear infinite;
+    }
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-700">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 shadow-md">
+    <div class="flex items-center space-x-2">
+      <img src="assets/logo.png" class="w-8 h-8" alt="Logo">
+      <span class="font-bold text-xl">FlowerX</span>
+    </div>
+    <div class="hidden md:flex space-x-6 items-center">
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Contact</a>
+      <a href="#">About</a>
+      <img src="assets/icon-cart.png" class="w-5 h-5" alt="Cart">
+    </div>
+    <div class="md:hidden flex items-center space-x-2">
+      <span class="font-bold">Cart</span>
+      <img src="assets/icon-cart.png" class="w-5 h-5" alt="Cart">
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <section class="flex flex-col md:flex-row items-center justify-between px-6 py-12 bg-gray-50">
+    <div class="md:w-1/2 space-y-4">
+      <h1 class="text-4xl font-bold">ALWAYS <span class="text-orange-500">FRESH</span> FLOWERS</h1>
+      <p>Get the best selection of flowers delivered fresh to your door. Perfect for any occasion.</p>
+    </div>
+    <div class="md:w-1/2 mt-6 md:mt-0">
+      <img src="assets/hero-flower.png" alt="Flowers" class="w-full">
+    </div>
+  </section>
+
+  <!-- Our Plants -->
+  <section class="px-6 py-12 text-center">
+    <h2 class="text-3xl font-semibold mb-2">Our Plants</h2>
+    <p class="mb-8 text-gray-600">Explore our beautiful and fresh flower collection</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Repeat for 8 cards -->
+      <div class="bg-white p-4 shadow rounded">
+        <img src="assets/sample-flower-image.png" alt="Flower" class="w-full h-40 object-cover">
+        <h3 class="mt-2 font-semibold">Lily Blossom</h3>
+        <p>$12.00</p>
+        <button onclick="addToCart()" class="bg-orange-500 text-white mt-2 px-4 py-1 rounded hover:bg-orange-600">Add to Cart</button>
+      </div>
+      <!-- Copy the above card 7 more times -->
+      <!-- ... total 8 cards ... -->
+      <!-- You can repeat manually or use a backend loop later -->
+    </div>
+  </section>
+
+
