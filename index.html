@@ -32,14 +32,16 @@
   <nav class="flex justify-between items-center px-6 py-4 shadow-md">
     <div class="flex items-center space-x-2">
       <img src="assets/logo.png" class="w-8 h-8" alt="Logo">
-      <span class="font-bold text-xl">FlowerX</span>
+      <span class="font-bold text-xl">Tafqueel</span>
     </div>
     <div class="hidden md:flex space-x-6 items-center">
       <a href="#">Home</a>
-      <a href="#">Shop</a>
-      <a href="#">Contact</a>
       <a href="#">About</a>
-      <img src="assets/icon-cart.png" class="w-5 h-5" alt="Cart">
+      <a href="#">Contact</a>
+      <a href="#">Support</a>
+      <span class="flex items-center space-x-1">
+        <img src="assets/icon-cart.png" class="w-5 h-5" alt="Cart">
+      </span>
     </div>
     <div class="md:hidden flex items-center space-x-2">
       <span class="font-bold">Cart</span>
@@ -49,9 +51,9 @@
 
   <!-- Banner -->
   <section class="flex flex-col md:flex-row items-center justify-between px-6 py-12 bg-gray-50">
-    <div class="md:w-1/2 space-y-4">
-      <h1 class="text-4xl font-bold">ALWAYS <span class="text-orange-500">FRESH</span> FLOWERS</h1>
-      <p>Get the best selection of flowers delivered fresh to your door. Perfect for any occasion.</p>
+    <div class="md:w-1/2 space-y-4 text-left">
+      <h1 class="text-4xl font-bold uppercase">Always <span class="text-orange-500">Fresh</span> Flowers</h1>
+      <p>We deliver flowers fresh from the garden. Always vibrant and beautiful, for every special moment in life.</p>
     </div>
     <div class="md:w-1/2 mt-6 md:mt-0">
       <img src="assets/hero-flower.png" alt="Flowers" class="w-full">
@@ -61,20 +63,92 @@
   <!-- Our Plants -->
   <section class="px-6 py-12 text-center">
     <h2 class="text-3xl font-semibold mb-2">Our Plants</h2>
-    <p class="mb-8 text-gray-600">Explore our beautiful and fresh flower collection</p>
-
+    <p class="mb-8 text-gray-600">Vibrant color, natural scent and a great look for your home & office</p>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <!-- Repeat for 8 cards -->
-      <div class="bg-white p-4 shadow rounded">
-        <img src="assets/sample-flower-image.png" alt="Flower" class="w-full h-40 object-cover">
-        <h3 class="mt-2 font-semibold">Lily Blossom</h3>
-        <p>$12.00</p>
-        <button onclick="addToCart()" class="bg-orange-500 text-white mt-2 px-4 py-1 rounded hover:bg-orange-600">Add to Cart</button>
-      </div>
-      <!-- Copy the above card 7 more times -->
-      <!-- ... total 8 cards ... -->
-      <!-- You can repeat manually or use a backend loop later -->
+      <!-- 8 flower cards -->
+      <!-- Repeat block below 8 times -->
+      <!-- You can later replace content dynamically if needed -->
+      <template id="flower-card-template">
+        <div class="bg-white p-4 shadow rounded">
+          <img src="assets/sample-flower-image.png" alt="Flower" class="w-full h-40 object-cover">
+          <h3 class="mt-2 font-semibold">Lily Blossom</h3>
+          <p class="text-sm">$12.00</p>
+          <button onclick="addToCart()" class="bg-orange-500 text-white mt-2 px-4 py-1 rounded hover:bg-orange-600 w-full">Add to Cart</button>
+        </div>
+      </template>
+      <script>
+        const container = document.currentScript.parentElement;
+        for (let i = 0; i < 8; i++) {
+          const clone = document.getElementById('flower-card-template').content.cloneNode(true);
+          container.appendChild(clone);
+        }
+      </script>
     </div>
   </section>
 
+  <!-- Flower Lover -->
+  <section class="flex flex-col md:flex-row items-center px-6 py-12 bg-gray-50 relative">
+    <div class="md:w-1/2 relative">
+      <img src="assets/flower-store.png" alt="Flower Store" class="w-full">
+      <img src="assets/trusted-badge.png" class="trusted-badge spin absolute top-4 left-4 w-16" alt="Trusted Badge">
+    </div>
+    <div class="md:w-1/2 mt-6 md:mt-0 md:pl-12 text-left">
+      <h2 class="text-2xl font-bold mb-4">Flower & Plants Lover</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Eco-friendly flowers</li>
+        <li>Locally sourced plants</li>
+        <li>Expert care tips</li>
+        <li>Guaranteed freshness</li>
+      </ul>
+    </div>
+  </section>
 
+  <!-- Latest Deals -->
+  <section class="px-6 py-12">
+    <h2 class="text-3xl font-semibold mb-2 text-center">Latest <span class="text-orange-500">Deals</span></h2>
+    <p class="text-center mb-8">Snag the freshest deals before they fade away</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div><img src="assets/deal-ana.png" alt="Deal Ana" class="rounded shadow"></div>
+      <div class="relative">
+        <img src="assets/deal-zabo.png" alt="Zabo Plant" class="rounded shadow">
+        <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center text-white">
+          <p class="text-xl font-bold">25% Off / Zabo Plant</p>
+          <p class="text-sm">Grab yours now</p>
+        </div>
+      </div>
+      <div><img src="assets/deal-bloom.png" alt="Deal Bloom" class="rounded shadow"></div>
+    </div>
+  </section>
+
+  <!-- Join Newsletter -->
+  <section class="px-6 py-12 bg-cover bg-center text-white text-center" style="background-image: url('news-letter-bg.png')">
+    <h2 class="text-3xl font-bold mb-4">Join the colorful Bunch</h2>
+    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded text-black w-72" />
+      <button class="bg-orange-500 px-6 py-2 rounded hover:bg-orange-600">Subscribe</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white px-6 py-8 border-t mt-12">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div class="flex items-center space-x-2 mb-6 md:mb-0">
+        <img src="assets/logo.png" class="w-8 h-8" alt="Logo">
+        <span class="font-bold text-xl">Tafqueel</span>
+      </div>
+      <div class="flex space-x-6">
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="flex space-x-4 mt-6 md:mt-0">
+        <img src="assets/icon-facebook.png" class="w-6 h-6" alt="Facebook" />
+        <img src="assets/icon-twitter.png" class="w-6 h-6" alt="Twitter" />
+        <img src="assets/icon-linkedin.png" class="w-6 h-6" alt="LinkedIn" />
+        <img src="assets/icon-youtube.png" class="w-6 h-6" alt="YouTube" />
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
